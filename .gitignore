@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+logs/
+screenshots/
+settings.json
+calibration.json
+gesture_model.pkl
+gesture_data.csv
+*.csv
+.vscode/

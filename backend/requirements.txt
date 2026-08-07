@@ -1,0 +1,25 @@
+# Core (required)
+opencv-python
+mediapipe
+pyautogui
+numpy
+
+# Windows system control
+pycaw
+comtypes
+screen-brightness-control
+
+# Training your own gesture model (optional)
+scikit-learn
+joblib
+
+# Voice feedback (optional)
+pyttsx3
+
+# System tray icon (optional)
+pystray
+pillow
+
+# Real trained emotion model instead of the geometry heuristic (optional, heavy)
+# fer
+# tensorflow
