@@ -3,7 +3,16 @@ import sys
 import threading
 import time
 import cv2
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "backend")))
+
+if getattr(sys, "frozen", False):
+    base_dir = sys._MEIPASS
+    backend_path = os.path.join(base_dir, "backend")
+else:
+    base_dir = os.path.dirname(__file__)
+    backend_path = os.path.join(base_dir, "..", "backend")
+
+sys.path.insert(0, os.path.abspath(backend_path))
+
 import config
 from hand_tracker import HandTracker
 from gesture_detector import GestureDetector
@@ -161,11 +170,10 @@ class AssistantWorker:
 
                 if slot == 0:
                     gesture_name_display, confidence_display = gesture_name, confidence
-                    index_tip = landmarks[8]
+                    index_tip = landmarks[10]
 
                     if mouse_active and gesture_name not in FREEZE_GESTURES:
                         mouse.move(index_tip[1], index_tip[2], w, h, margin)
-                        cv2.circle(frame, (index_tip[1], index_tip[2]), 10, config.RED, -1)
 
                     if gesture_name == "Pinch":
                         if pinch_start_time is None:

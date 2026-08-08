@@ -9,3 +9,5 @@ gesture_model.pkl
 gesture_data.csv
 *.csv
 .vscode/
+build/
+dist/

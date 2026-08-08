@@ -2,7 +2,15 @@ import os
 import sys
 import customtkinter as ctk
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "backend")))
+if getattr(sys, "frozen", False):
+    base_dir = sys._MEIPASS
+    backend_path = os.path.join(base_dir, "backend")
+else:
+    base_dir = os.path.dirname(__file__)
+    backend_path = os.path.join(base_dir, "..", "backend")
+
+sys.path.insert(0, os.path.abspath(backend_path))
+
 import system_control
 
 import theme
